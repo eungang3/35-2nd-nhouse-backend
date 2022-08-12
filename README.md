@@ -15,6 +15,15 @@ http://13.127.1.227:8000/
 ## 시연 영상
 https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
+<br>
+
+![카카오-로그인](https://user-images.githubusercontent.com/47664802/184307548-414db957-5a57-493d-a0bb-fff7f12aa49e.gif)
+<br>
+
+![팔로잉-추천](https://user-images.githubusercontent.com/47664802/184307578-5efadf31-7eb2-4990-8f4f-cc477e04d6cf.gif)
+
+<br>
+![포스트-상세](https://user-images.githubusercontent.com/47664802/184307613-18e2d13d-3c1f-4b4b-b99a-70346b1258a5.gif)
 
 <br>
 
