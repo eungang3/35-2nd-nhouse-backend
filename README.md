@@ -43,7 +43,7 @@
    - DB 모델링
    - SNS 로그인 API
    - 포스트상세/포스트 목록 API
-   - 팔로우 API
+   - 팔로우 API/팔로우 포스트 API
    - 검색 API
    - 프로젝트 후 개인적으로 진행 : 글쓰기 API(s3)
    
@@ -129,9 +129,8 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
     + 역참조 시에는 related_name을 사용하지 않는 경우 _set 매니저를 사용합니다.  
  
 - django ORM을 최적화했습니다.
-   + 예를 들어 포스트 목록 API에서는,
-   + select_related를 사용하여 DB에서 posts 테이블과 users 테이블을 inner join해서 한 번에 가져와 캐싱하도록 했습니다.
-   + prefetch_related를 사용하여 DB에서 photos 테이블을 가져와 inner join해서 가져온 posts 테이블과 users 테이블과 연결해서 캐싱하도록 했습니다.
+   + select_related를 적용해보며 DB에서 테이블을 inner join해서 한 번에 가져와 캐싱하는 과정을 이해했습니다.
+   + prefetch_related를 적용해보며 DB에서 테이블을 가져와 캐싱하는 과정을 이해했습니다.
    + 로그를 찍어보며 왜 django ORM 최적화가 필요한지 이해했습니다.
 
 
@@ -141,9 +140,25 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 ### 구현 사항
 1. 팔로우 성공 시 "FOLLOW_SUCCESS" 메시지와 201 코드 반환
-2. 이미 팔로우하는 유저인 경우 언팔로우. "
+2. 이미 팔로우하는 유저인 경우 언팔로우. "UNFOLLOW_SUCCESS" 메시지와 200 코드 반환
+3. 존재하지 않는 유저를 팔로우하는 경우 "INVALID_USER_TO_FOLLOW" 메시지와 400 코드 반환
 
 ### 배운 점
+- is_created를 사용해 코드를 단축해보았습니다.
+- 자기 자신을 참조하는 다대다 관계의 모델을 구축하고 사용해보았습니다.
+
+<br>
+
+## 7.4 내 역할 - 팔로우 목록 API
+### 구현 사항
+1. 팔로우하는 유저가 있는 경우
+   - 팔로우하는 유저의 포스트 리스트 응답
+
+2. 팔로우하는 유저가 없는 경우
+   - 팔로우 수가 가장 많은 유저 10명의 포스트를 각 4개씩 보내줌
+
+### 배운 점
+- annotate 메서드의 사용법을 익혔습니다.
 
 <br>
 
