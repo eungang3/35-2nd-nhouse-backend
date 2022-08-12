@@ -44,6 +44,8 @@
    - SNS 로그인 API
    - 포스트상세/포스트 목록 API
    - 팔로우 API
+   - 검색 API
+   - 프로젝트 후 개인적으로 진행 : 글쓰기 API(s3)
    
 <br>
 
@@ -55,7 +57,20 @@
 
 <br>
 
-## 6.1 내 역할 - SNS 로그인 API
+## 6. 시연 영상
+https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
+
+<br>
+
+![카카오-로그인](https://user-images.githubusercontent.com/47664802/184307548-414db957-5a57-493d-a0bb-fff7f12aa49e.gif)
+<br>
+
+![팔로잉-추천](https://user-images.githubusercontent.com/47664802/184307578-5efadf31-7eb2-4990-8f4f-cc477e04d6cf.gif)
+
+<br>
+
+
+## 7.1 내 역할 - SNS 로그인 API
 
 ### 구현 사항
 1. 유저 정보를 응답하는 카카오 REST API에 django requsts로 요청 보내고 유저 정보 응답받기
@@ -83,6 +98,9 @@
    + 인증은 유저가 우리 서비스에 등록된 유저인지 확인하는 것입니다.
    + 인가는 유저가 어딘가에 접근하려고 할 때 권한이 있는지 확인하는 것입니다.
 
+- 캡슐화의 개념에 대해 배우고 코드에 적용해보았습니다.
+   + 카카오에 요청을 보내는 부분은 KakaoAPI 클래스로 분리해서 관리합니다.
+
 - django의 requests 모듈을 사용해보았습니다.
    + requests 모듈을 사용하면 django에서 외부 REST API를 호출할 수 있음을 알게 되었습니다.
    + django에서 API를 호출할 때 요청 헤더와 바디에 어떻게 정보를 담아 보낼 수 있는지 배웠습니다.
@@ -95,13 +113,14 @@
 
 <br>
 
-## 6.2 내 역할 - 포스트상세/포스트 목록 API
+## 7.2 내 역할 - 포스트상세/포스트 목록 API
 
 ### 구현 사항
 1. 쿼리 파라미터에 필터링 항목을 입력하면 주거 형태, 평수, 가족형태, 작업 분야, 작업자에 따라 포스트를 필터링해서 응답
 2. 페이지네이션 적용
 3. 요청 성공 시 페이지 정보, 상품 목록과 코드 200을 반환
 4. 존재하지 않는 카테고리나 페이지 요청 시 404 에러 반환
+5. unit test 코드 작성해서 테스트 자동화
 
 ### 배운 점
 - 정참조와 역참조 관계에 대해 더 잘 이해하게 되었습니다.
@@ -110,7 +129,7 @@
     + 역참조 시에는 related_name을 사용하지 않는 경우 _set 매니저를 사용합니다.  
  
 - django ORM을 최적화했습니다.
-   + 예를 들어 포스트 목록 API에서는 다음과 같이 최적화했습니다.
+   + 예를 들어 포스트 목록 API에서는,
    + select_related를 사용하여 DB에서 posts 테이블과 users 테이블을 inner join해서 한 번에 가져와 캐싱하도록 했습니다.
    + prefetch_related를 사용하여 DB에서 photos 테이블을 가져와 inner join해서 가져온 posts 테이블과 users 테이블과 연결해서 캐싱하도록 했습니다.
    + 로그를 찍어보며 왜 django ORM 최적화가 필요한지 이해했습니다.
@@ -118,23 +137,13 @@
 
 <br>
 
-## 6.3 내 역할 - 팔로우 API
+## 7.3 내 역할 - 팔로우 API
 
 ### 구현 사항
+1. 팔로우 성공 시 "FOLLOW_SUCCESS" 메시지와 201 코드 반환
+2. 이미 팔로우하는 유저인 경우 언팔로우. "
 
 ### 배운 점
-
-<br>
-
-## 7. 시연 영상
-https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
-
-<br>
-
-![카카오-로그인](https://user-images.githubusercontent.com/47664802/184307548-414db957-5a57-493d-a0bb-fff7f12aa49e.gif)
-<br>
-
-![팔로잉-추천](https://user-images.githubusercontent.com/47664802/184307578-5efadf31-7eb2-4990-8f4f-cc477e04d6cf.gif)
 
 <br>
 
