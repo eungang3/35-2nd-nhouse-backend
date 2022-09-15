@@ -1,7 +1,6 @@
 # 내일의 집 nhouse (위코드 35기 2차 프로젝트)
 - 내일의 집은 오늘의 집 쇼핑몰을 클론코딩한 프로젝트입니다. 
 - 개발에 집중하기 위해 기획, 디자인은 참고하고 기능은 직접 구현하였습니다.
-- 링크 : http://3.109.225.242:8000/
 
 <br>
 
@@ -51,8 +50,7 @@
 
 ## 5. 백엔드 기술 스택
 - Back-end : Python, Django, JWT, Bcrypt, Miniconda
-- Database : dbdiagram.io, MySQL
-- HTTP : Postman
+- Database : MySQL
 - Common : Trello, Slack, Git & Github
 
 <br>
@@ -69,8 +67,11 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 <br>
 
+## 7. DB 모델링
+https://dbdiagram.io/d/62b95a9c69be0b672c484056
+<img width="1119" alt="스크린샷 2022-08-12 오후 2 41 28" src="https://user-images.githubusercontent.com/47664802/184291868-638cb04f-b180-40ec-8a93-9a5e95a9f108.png">
 
-## 7.1 내 역할 - SNS 로그인 API
+## 8.1 내 역할 - SNS 로그인 API
 
 ### 구현 사항
 1. 유저 정보를 응답하는 카카오 REST API에 django requsts로 요청 보내고 유저 정보 응답받기
@@ -113,7 +114,7 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 <br>
 
-## 7.2 내 역할 - 포스트상세/포스트 목록 API
+## 8.2 내 역할 - 포스트상세/포스트 목록 API
 
 ### 구현 사항
 1. 쿼리 파라미터에 필터링 항목을 입력하면 주거 형태, 평수, 가족형태, 작업 분야, 작업자에 따라 포스트를 필터링해서 응답
@@ -136,7 +137,7 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 <br>
 
-## 7.3 내 역할 - 팔로우 API
+## 8.3 내 역할 - 팔로우 API
 
 ### 구현 사항
 1. 팔로우 성공 시 "FOLLOW_SUCCESS" 메시지와 201 코드 반환
@@ -149,7 +150,7 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 <br>
 
-## 7.4 내 역할 - 팔로우 목록 API
+## 8.4 내 역할 - 팔로우 목록 API
 ### 구현 사항
 1. 팔로우하는 유저가 있는 경우
    - 팔로우하는 유저의 포스트 리스트 응답
@@ -160,7 +161,7 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 ### 배운 점
 - annotate 메서드의 사용법을 익혔습니다.
 
-## 7.4 프로젝트 후 개인적으로 진행 : 글쓰기 API(s3)
+## 8.4 프로젝트 후 개인적으로 진행 : 글쓰기 API(s3)
 ### 구현 사항
 1. AWS S3에 사진 업로드하기
    - AWS에서 IAM 사용자 설정
@@ -197,13 +198,6 @@ https://www.youtube.com/watch?v=xwOui_m09ZI&t=1s
 
 <br>
 
-## 8. API 명세서
+## 9. API 명세서
 https://www.notion.so/API-aba14d6d95e04d9ca1723f5467d1df3b
-
-<br>
-
-
-## 9. DB 모델링
-
-<img width="1119" alt="스크린샷 2022-08-12 오후 2 41 28" src="https://user-images.githubusercontent.com/47664802/184291868-638cb04f-b180-40ec-8a93-9a5e95a9f108.png">
 
