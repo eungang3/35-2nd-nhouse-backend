@@ -197,6 +197,7 @@ class FileHandler:
         return self.file_uploader.upload(file)
 
 class PostView(View):
+    @login_decorator
     def post(self, request):
         try:
             data        = json.loads(request.POST.get('data'))
@@ -206,7 +207,7 @@ class PostView(View):
             work_type   = data.get('work_type')
             contents    = data.get('contents')
             files       = request.FILES.getlist('photo')
-            user_id     = 1
+            user_id     = request.user.id
 
             if len(files) != len(contents):
                 return JsonResponse({'message':'INVALID_LENGTH'}, status=400)
