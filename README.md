@@ -145,7 +145,7 @@ https://dbdiagram.io/d/62b95a9c69be0b672c484056
 3. 존재하지 않는 유저를 팔로우하는 경우 "INVALID_USER_TO_FOLLOW" 메시지와 400 코드 반환
 
 ### 배운 점
-- is_created를 사용해 코드를 단축해보았습니다.
+- get_or_created를 사용해 코드를 단축해보았습니다.
 - 자기 자신을 참조하는 다대다 관계의 모델을 구축하고 사용해보았습니다.
 
 <br>
